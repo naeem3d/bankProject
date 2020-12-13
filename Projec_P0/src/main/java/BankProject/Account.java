@@ -8,9 +8,11 @@ public class Account {
 	private double balance ;
 	private String EmailAddress;
 	private String PhoneNumber;
+	private String userName ;
+	private String password;
 	
 	
-	public Account( String name, double balance, String emailAddress, String phoneNumber) {
+	public Account( String name, double balance, String emailAddress, String phoneNumber , String username ,String password ) {
 		super();
 		Random rand = new Random() ; 
 		int number1 = rand.nextInt(999999999) ;
@@ -21,9 +23,46 @@ public class Account {
 		this.balance = balance;
 		this.EmailAddress = emailAddress;
 		this.PhoneNumber = phoneNumber;
+		this.userName = username ;
+		this.password = password ;
 	}
 	
 	
+	
+	
+	public void deposit (double depositAmount) {
+		this.balance += depositAmount ;
+	}
+	
+	public void withdrawal(double withdrawalAmount) {
+		if(balance - withdrawalAmount <0 ) {
+			System.out.println("only " + balance + "just the amount you have ") ;
+		}else {
+			balance -= withdrawalAmount ;
+		}
+	}
+	
+	
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 	public int getNumber() {
 		return number;
 	}
